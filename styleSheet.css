@@ -3,6 +3,20 @@
   background-size: 400px;
   background-repeat: repeat-y;
   width: 400px;
-  height: 720px;
+  height: 700px;
   margin: 0px auto;
+}
+
+#car {
+  background-color: red;
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+#obstacle {
+  background-color: green;
+  width: 20px;
+  height: 20px;
+  position: relative;
 }

@@ -6,10 +6,12 @@
     <script src="scripts.js"></script>
   </head>
   <body onkeydown="moveCar(event);">
-    <button onclick="moveRoad()">Begin fight</button>
-    <div id="road">
-      <div id="car"></div>
-      <div id="obstacle"></div>
+    <div style="display: flex">
+      <button onclick="moveRoad(); moveObstacle();">Begin fight</button>
+      <div id="road">
+        <div id="car"></div>
+        <div id="obstacle"></div>
+      </div>
     </div>
   </body>
 </html>
