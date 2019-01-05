@@ -28,9 +28,9 @@ const updateRoadPosition = function() {
 };
 
 const moveRoad = function() {
-  updateCarPosition();
   const road = document.getElementById("road");
   setInterval(function() {
+    updateRoadPosition();
     road.setAttribute(
       "style",
       "background-position:" + roadPosition.x + "px " + roadPosition.y + "px"
