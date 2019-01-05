@@ -1,0 +1,8 @@
+#road {
+  background: url("/images/NightRoad.png");
+  background-size: 400px;
+  background-repeat: repeat-y;
+  width: 400px;
+  height: 720px;
+  margin: 0px auto;
+}
