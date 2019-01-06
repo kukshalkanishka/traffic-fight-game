@@ -8,10 +8,12 @@
 }
 
 #car {
-  background-color: red;
-  width: 20px;
-  height: 20px;
+  background: url("/road_fight/images/redCAr.png");
+  background-size: cover;
+  width: 70px;
+  height: 100px;
   position: relative;
+  top: 500px;
 }
 
 #obstacle1 {
