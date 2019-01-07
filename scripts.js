@@ -1,7 +1,7 @@
 let carPosition = { left: 0, top: 500 };
 let roadPosition = { x: 0, y: 0 };
 obstacle1Position = { left: 0, top: 50 };
-obstacle2Position = { left: 300, top: -50 };
+obstacle2Position = { left: 200, top: -50 };
 obstacle3Position = { left: 350, top: 50 };
 let score = 0;
 
@@ -68,10 +68,9 @@ const updateObstacle1Position = function() {
   obstacle1Position.top += 5;
   obstacle1.setAttribute(
     "style",
-    "width: 20px; height: 20px; background-color: green;top:" +
-      obstacle1Position.top +
-      "px"
+    "background-color:green;top:" + obstacle1Position.top + "px"
   );
+  alertIfGameOver(obstacle1Position);
 };
 
 const updateObstacle2Position = function() {
@@ -83,10 +82,9 @@ const updateObstacle2Position = function() {
   obstacle2Position.top += 5;
   obstacle2.setAttribute(
     "style",
-    "width: 20px; height: 20px; background-color: green;left: 200px;top:" +
-      obstacle2Position.top +
-      "px;"
+    "left: 200px;background-color: green;top:" + obstacle2Position.top + "px;"
   );
+  alertIfGameOver(obstacle2Position);
 };
 
 const updateObstacle3Position = function() {
@@ -98,10 +96,9 @@ const updateObstacle3Position = function() {
   obstacle3Position.top += 5;
   obstacle3.setAttribute(
     "style",
-    "width: 30px; height: 30px; background-color: green;left: 350px; top:" +
-      obstacle3Position.top +
-      "px;"
+    "background-color:green; left: 350px; top:" + obstacle3Position.top + "px;"
   );
+  alertIfGameOver(obstacle3Position);
 };
 
 const generateObstacles = function() {
