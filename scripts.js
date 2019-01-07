@@ -1,7 +1,7 @@
 let carPosition = { left: 0, top: 500 };
 let roadPosition = { x: 0, y: 0 };
 obstacle1Position = { left: 0, top: 50 };
-obstacle2Position = { left: 200, top: -50 };
+obstacle2Position = { left: 200, top: -80 };
 obstacle3Position = { left: 350, top: 50 };
 let score = 0;
 
@@ -68,7 +68,11 @@ const updateObstacle1Position = function() {
   obstacle1Position.top += 5;
   obstacle1.setAttribute(
     "style",
-    "background-color:green;top:" + obstacle1Position.top + "px"
+    "background-color:green;left:" +
+      obstacle1Position.left +
+      "px;top:" +
+      obstacle1Position.top +
+      "px"
   );
   alertIfGameOver(obstacle1Position);
 };
@@ -82,7 +86,11 @@ const updateObstacle2Position = function() {
   obstacle2Position.top += 5;
   obstacle2.setAttribute(
     "style",
-    "left: 200px;background-color: green;top:" + obstacle2Position.top + "px;"
+    "left:" +
+      obstacle2Position.left +
+      "px; background-color: green;top:" +
+      obstacle2Position.top +
+      "px;"
   );
   alertIfGameOver(obstacle2Position);
 };
@@ -96,7 +104,11 @@ const updateObstacle3Position = function() {
   obstacle3Position.top += 5;
   obstacle3.setAttribute(
     "style",
-    "background-color:green; left: 350px; top:" + obstacle3Position.top + "px;"
+    "background-color:green;left: " +
+      obstacle3Position.left +
+      "px; top:" +
+      obstacle3Position.top +
+      "px;"
   );
   alertIfGameOver(obstacle3Position);
 };
