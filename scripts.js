@@ -1,9 +1,8 @@
 let carPosition = { left: 0, top: 500 };
 let roadPosition = { x: 0, y: 0 };
 obstacle1Position = { left: 0, top: 50 };
-obstacle2Position = { left: 200, top: -80 };
+obstacle2Position = { left: 200, top: -100 };
 obstacle3Position = { left: 350, top: 50 };
-let score = 0;
 
 const updateCarPosition = function(event) {
   if (event.key == "ArrowRight") {
@@ -59,31 +58,31 @@ const alertIfGameOver = function(obstaclePosition) {
   }
 };
 
-const updateObstacle1Position = function() {
+const setObstacle1Attributes = function() {
   const obstacle1 = document.getElementById("obstacle1");
-
-  if (obstacle1Position.top >= 600) {
-    obstacle1Position.top = 50;
-  }
-  obstacle1Position.top += 5;
   obstacle1.setAttribute(
     "style",
-    "background-color:green;left:" +
+    "background-color: green;left:" +
       obstacle1Position.left +
       "px;top:" +
       obstacle1Position.top +
       "px"
   );
+};
+
+const updateObstacle1Position = function() {
+  if (obstacle1Position.top >= 600) {
+    obstacle1Position.top = 50;
+  }
+  obstacle1Position.top += 5;
+  setObstacle1Attributes();
+
   alertIfGameOver(obstacle1Position);
 };
 
-const updateObstacle2Position = function() {
+const setObstacle2Attributes = function() {
   const obstacle2 = document.getElementById("obstacle2");
 
-  if (obstacle2Position.top >= 600) {
-    obstacle2Position.top = -50;
-  }
-  obstacle2Position.top += 5;
   obstacle2.setAttribute(
     "style",
     "left:" +
@@ -92,16 +91,19 @@ const updateObstacle2Position = function() {
       obstacle2Position.top +
       "px;"
   );
+};
+
+const updateObstacle2Position = function() {
+  if (obstacle2Position.top >= 600) {
+    obstacle2Position.top = -50;
+  }
+  obstacle2Position.top += 5;
+  setObstacle2Attributes();
   alertIfGameOver(obstacle2Position);
 };
 
-const updateObstacle3Position = function() {
+const setObstacle3Attributes = function() {
   const obstacle3 = document.getElementById("obstacle3");
-
-  if (obstacle3Position.top >= 600) {
-    obstacle3Position.top = 50;
-  }
-  obstacle3Position.top += 5;
   obstacle3.setAttribute(
     "style",
     "background-color:green;left: " +
@@ -110,6 +112,15 @@ const updateObstacle3Position = function() {
       obstacle3Position.top +
       "px;"
   );
+};
+
+const updateObstacle3Position = function() {
+  if (obstacle3Position.top >= 600) {
+    obstacle3Position.top = 50;
+  }
+  obstacle3Position.top += 5;
+  setObstacle3Attributes();
+
   alertIfGameOver(obstacle3Position);
 };
 
