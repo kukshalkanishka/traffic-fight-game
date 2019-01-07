@@ -1,5 +1,8 @@
 let carPosition = { left: 0, top: 500 };
 let roadPosition = { x: 0, y: 0 };
+obstacle1Position = { left: 0, top: 50 };
+obstacle2Position = { left: 300, top: -50 };
+obstacle3Position = { left: 350, top: 50 };
 let score = 0;
 
 const updateCarPosition = function(event) {
@@ -30,76 +33,83 @@ const moveRoad = function() {
   setInterval(updateRoadPosition, 100);
 };
 
+const isInCarTopRange = function(obstaclePosition) {
+  return (
+    obstaclePosition.top > carPosition.top - 110 &&
+    obstaclePosition.top < carPosition.top
+  );
+};
+
+const isInCarSideRange = function(obstaclePosition) {
+  return (
+    obstaclePosition.left > carPosition.left &&
+    obstaclePosition.left < carPosition.left + 70
+  );
+};
+
+const hasColapsed = function(obstaclePosition) {
+  return (
+    isInCarTopRange(obstaclePosition) && isInCarSideRange(obstaclePosition)
+  );
+};
+
 const alertIfGameOver = function(obstaclePosition) {
-  if (
-    obstaclePosition.top == carPosition.top &&
-    obstaclePosition.left >= carPosition.left &&
-    obstaclePosition.left <= carPosition.left - 30
-  ) {
+  if (hasColapsed(obstaclePosition)) {
     alert("Game Over");
   }
 };
 
 const updateObstacle1Position = function() {
   const obstacle1 = document.getElementById("obstacle1");
-  obstacle1Position.top += 10;
+
+  if (obstacle1Position.top >= 600) {
+    obstacle1Position.top = 50;
+  }
+  obstacle1Position.top += 5;
   obstacle1.setAttribute(
     "style",
     "width: 20px; height: 20px; background-color: green;top:" +
       obstacle1Position.top +
       "px"
   );
-  if (obstacle1Position.top >= 600) {
-    clearInterval(obstacle1Id);
-  }
-  console.log(obstacle1Position);
-
-  alertIfGameOver(obstacle1Position);
 };
 
 const updateObstacle2Position = function() {
   const obstacle2 = document.getElementById("obstacle2");
-  obstacle2Position.top += 10;
+
+  if (obstacle2Position.top >= 600) {
+    obstacle2Position.top = -50;
+  }
+  obstacle2Position.top += 5;
   obstacle2.setAttribute(
     "style",
-    "width: 20px; height: 20px; background-color: green;top:" +
+    "width: 20px; height: 20px; background-color: green;left: 200px;top:" +
       obstacle2Position.top +
       "px;"
   );
-  alertIfGameOver(obstacle2Position);
-  if (obstacle2Position.top >= 600) {
-    clearInterval(obstacle2Id);
-  }
 };
 
 const updateObstacle3Position = function() {
   const obstacle3 = document.getElementById("obstacle3");
-  obstacle3Position.top += 10;
+
+  if (obstacle3Position.top >= 600) {
+    obstacle3Position.top = 50;
+  }
+  obstacle3Position.top += 5;
   obstacle3.setAttribute(
     "style",
-    "width: 30px; height: 30px; background-color: green;top:" +
+    "width: 30px; height: 30px; background-color: green;left: 350px; top:" +
       obstacle3Position.top +
       "px;"
   );
-  alertIfGameOver(obstacle3Position);
-  if (obstacle3Position.top >= 550) {
-    clearInterval(obstacle3Id);
-  }
 };
 
 const generateObstacles = function() {
-  obstacle1Position = { left: 0, top: 30 };
-  obstacle2Position = { left: 150, top: 0 };
-  obstacle3Position = { left: 350, top: 60 };
-
-  document.getElementById("road").innerHTML =
-    "<div id ='car'></div><div id='obstacle1'></div><div id='obstacle2'></div><div id='obstacle3'></div>";
-
-  obstacle1Id = setInterval(updateObstacle1Position, 100);
-  obstacle2Id = setInterval(updateObstacle2Position, 200);
-  obstacle3Id = setInterval(updateObstacle3Position, 100);
+  updateObstacle1Position();
+  updateObstacle2Position();
+  updateObstacle3Position();
 };
 
 const moveObstacles = function() {
-  setInterval(generateObstacles, 5000);
+  setInterval(generateObstacles, 100);
 };
