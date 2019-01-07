@@ -34,14 +34,14 @@ const moveRoad = function() {
 
 const isInCarTopRange = function(obstaclePosition) {
   return (
-    obstaclePosition.top > carPosition.top - 110 &&
+    obstaclePosition.top > carPosition.top - 140 &&
     obstaclePosition.top < carPosition.top
   );
 };
 
 const isInCarSideRange = function(obstaclePosition) {
   return (
-    obstaclePosition.left > carPosition.left &&
+    obstaclePosition.left > carPosition.left - 10 &&
     obstaclePosition.left < carPosition.left + 70
   );
 };
@@ -106,7 +106,7 @@ const setObstacle3Attributes = function() {
   const obstacle3 = document.getElementById("obstacle3");
   obstacle3.setAttribute(
     "style",
-    "background-color:green;left: " +
+    "background-color: green;left: " +
       obstacle3Position.left +
       "px; top:" +
       obstacle3Position.top +

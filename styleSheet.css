@@ -33,3 +33,8 @@
   height: 20px;
   position: relative;
 }
+
+body {
+  /* background: url("/road_fight/images/horizon.jpeg"); */
+  background-size: cover;
+}
